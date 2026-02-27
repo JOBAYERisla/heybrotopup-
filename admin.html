@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+<body>
+
+<h2>Admin Panel</h2>
+
+<button onclick="load()">Load Orders</button>
+
+<div id="orders"></div>
+
+<script>
+
+function load(){
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let html="";
+
+orders.forEach(o=>{
+html+=`<p>${o.package} - UID: ${o.uid}</p>`;
+});
+
+document.getElementById("orders").innerHTML=html;
+
+}
+
+</script>
+
+</body>
+</html>
